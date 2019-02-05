@@ -393,6 +393,11 @@ fieldset:not(:last-child) {
   margin: 55px 0 0;
 }
 
+.modal a,
+.field a,
+.media-content a {
+  text-decoration: underline;
+}
 .video-transcript p {
   margin: 0 0 10px;
 }
