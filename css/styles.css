@@ -409,6 +409,14 @@ fieldset:not(:last-child) {
   margin: 0 0 10px;
 }
 
+.button[aria-disabled="true"] {
+  background-color: #3273dc;
+  border-color: transparent;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: .5;
+}
+
 
 @media screen and (max-width: 1087px) {
   .navbar.is-active {
