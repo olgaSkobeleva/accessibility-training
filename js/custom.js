@@ -7,6 +7,9 @@
     burger.classList.toggle("is-active");
     menu.classList.toggle("is-active");
   });
+
+  setInterval(function(){addFakeMessage()}, 10000);
+
 })();
 
 document.querySelectorAll("#nav li").forEach(function(navEl) {
@@ -41,4 +44,15 @@ function toggleTab(selectedNav, targetId) {
       tab.style.display = "none";
     }
   });
+}
+
+function addFakeMessage() {
+  var msg = document.createElement("div"),
+      postsContainer = document.querySelector("#posts-container");
+  
+  msg.className = "post fake";
+  
+  msg.innerHTML = '<h4>DYNAMIC: This should be heard when added</h4>';
+
+  postsContainer.insertBefore(msg, postsContainer.children[0]);
 }
