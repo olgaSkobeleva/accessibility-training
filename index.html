@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <!-- <a href="#main-content" class="visually-hidden skip-link">Skip to main content</a> -->
+  <a href="#main-content" class="visually-hidden skip-link">Skip to main content</a>
   <div class="skipnav">
     <button class="toggleSkipnav visually-hidden">Skip naviagtion to...</button>
     <ul class="skipnav-dropdown">
@@ -41,7 +41,7 @@
                 <li class="navbar-item">
                   <a href="#" class="button is-white is-outlined">
                     <span class="icon">
-                      <i class="fa fa-home" aria-hidden="true"></i>
+                      <span class="fa fa-home" aria-hidden="true"></span> 
                     </span>
                     <span>Home</span>
                   </a>
@@ -49,7 +49,7 @@
                 <li class="navbar-item">
                   <a href="#" class="button is-white is-outlined">
                     <span class="icon">
-                      <i class="fab fa-superpowers" aria-hidden="true"></i>
+                      <span class="fab fa-superpowers" aria-hidden="true"></span> 
                     </span>
                     <span>Examples</span>
                   </a>
@@ -57,7 +57,7 @@
                 <li class="navbar-item">
                   <a href="#" class="button is-white is-outlined">
                     <span class="icon">
-                      <i class="fa fa-book" aria-hidden="true"></i>
+                      <span class="fa fa-book" aria-hidden="true"></span> 
                     </span>
                     <span>Documentation</span>
                   </a>
@@ -65,7 +65,7 @@
                 <li class="navbar-item">
                   <a href="#" class="button is-white is-outlined">
                     <span class="icon">
-                      <i class="fab fa-github" aria-hidden="true"></i>
+                      <span class="fab fa-github" aria-hidden="true"></span> 
                     </span>
                     <span>View Source</span>
                   </a>
@@ -296,7 +296,7 @@
           <div class="column is-4">
             <div class="card is-shady">
               <div class="card-image has-text-centered">
-                <i class="fa fa-paw" aria-hidden="true"></i>
+                <span class="fa fa-paw" aria-hidden="true"></span> 
               </div>
               <div class="card-content">
                 <div class="content">
@@ -311,7 +311,7 @@
           <div class="column is-4">
             <div class="card is-shady">
               <div class="card-image has-text-centered">
-                <i class="fab fa-empire" aria-hidden="true"></i>
+                <span class="fab fa-empire" aria-hidden="true"></span> 
               </div>
               <div class="card-content">
                 <div class="content">
@@ -327,7 +327,7 @@
           <div class="column is-4">
             <div class="card is-shady">
               <div class="card-image has-text-centered">
-                <i class="fab fa-apple" aria-hidden="true"></i>
+                <span class="fab fa-apple" aria-hidden="true"></span> 
               </div>
               <div class="card-content">
                 <div class="content">
@@ -353,25 +353,25 @@
         <ul role="tablist">
           <li data-target="pane-1" id="tab1" role="tab" aria-selected="false">
             <button >
-              <span class="icon is-small"><i class="fa fa-image" aria-hidden="true"></i></span>
+              <span class="icon is-small"><span class="fa fa-image" aria-hidden="true"></span> </span>
               <span>Pictures</span>
             </button>
           </li>
           <li data-target="pane-2" id="tab2" class="is-active" role="tab" aria-selected="true">
             <button>
-              <span class="icon is-small"><i class="fab fa-empire" aria-hidden="true"></i></span>
+              <span class="icon is-small"><span class="fab fa-empire" aria-hidden="true"></span> </span>
               <span>Article</span>
             </button>
           </li> 
           <li data-target="pane-3" id="tab3" role="tab" aria-selected="false">
             <button>
-              <span class="icon is-small"><i class="fab fa-superpowers" aria-hidden="true"></i></span>
+              <span class="icon is-small"><span class="fab fa-superpowers" aria-hidden="true"></span> </span>
               <span>Team</span>
             </button>
           </li>
           <li data-target="pane-4" id="tab4" role="tab" aria-selected="false">
             <button>
-              <span class="icon is-small"><i class="fa fa-film" aria-hidden="true"></i></span>
+              <span class="icon is-small"><span class="fa fa-film" aria-hidden="true"></span> </span>
               <span>Video</span>
             </button>
           </li>
@@ -379,7 +379,7 @@
       </div>
 
       <div class="tab-content container">
-        <div class="tab-pane" id="pane-1" class="level" role="tabpanel" aria-labeledby="tab1">
+        <div class="tab-pane" id="pane-1" class="level" role="tabpanel" aria-labelledby="tab1">
           <div class="container">
             <div class="columns features">
               <div class="column is-4">
@@ -437,14 +437,68 @@
               </div>
             </div>
           </div>
+
+          <div id="modal-image1" class="modal modal-fx-3dSlit" aria-modal="true" role="dialog">
+            <div class="modal-background"></div>
+            <div class="modal-content is-huge is-image">
+              <img src="https://source.unsplash.com/random/?sig=1" alt="Photographer's vaction">
+            </div>
+            <button class="modal-close is-large"></button>
+          </div>
+
+          <div id="modal-card" class="modal modal-fx-3dSlit" aria-modal="true" role="dialog">
+            <div class="modal-background"></div>
+            <div class="modal-content is-tiny">
+              <div class="card">
+                <div class="card-image">
+                  <div class="image is-4by3">
+                    <img src="https://source.unsplash.com/random/?sig=2" alt="Public transport in NYC">
+                  </div>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <div class="image is-48x48">
+                        <img src="http://www.radfaces.com/images/avatars/linda-barret.jpg" alt="Lind Barret portrait">
+                      </div>
+                    </div>
+                    <div class="media-content">
+                      <div class="title is-4">Jane Doe</div>
+                      <div class="subtitle is-6">@jane_doe</div>
+                    </div>
+                  </div>
+                  <div class="content">
+                    Laum Ipsum junkah potatoes bookin' it. Moosetown rig up I'm tellin' you way up north bookin' it can't get theyah from heeyah native bean suppah whawf Powrtland Museum of Aht, back woods hawsun around the pit mummah Yessah, mummah muckle riyht on'ta her
+                    Bean's dinnahbucket bub geez bud sumpin' fierce ayuhpawt Bangah naw, Powrtland Museum of Aht down cellah sumpin' fierce hoppa bub If you can't stand the wintah you don't deserve the summah slower than molasses going uphill in January.
+                    Sgn'wahl shoggor hrii uaaah R'lyeh uh'e k'yarnak Hastur hupadgh li'hee, hai f'nilgh'ri nilgh'ri n'ghftor ngftaghu vulgtlagln h'hrii throd Nyarlathotep lloig, naflsll'ha nnnsll'ha athg y-ebunma goka chtenff ehyeog cehye. Zhro y'hah
+                    nogoth phlegeth stell'bsna orr'e ph'Hastur gnaiih throd, uln ya lw'nafh mg nar'luh li'hee wgah'n, sgn'wahl mg nakadishtu chlirgh hupadgh tharanak h'gnaiih.
+                    <a href="#" aria-label="read more testio">@testio</a>.
+                    <a href="#" aria-label="read more css">#css</a>
+                    <a href="#" aria-label="read more responsive">#responsive</a>
+                    <br>
+                    <time datetime="2018-02-02">12:45 AM - 20 June 2018</time>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="modal-close is-large"></button>
+          </div>
+
+          <div id="modal-image2" class="modal modal-fx-superScaled" aria-modal="true" role="dialog">
+            <div class="modal-background"></div>
+            <div class="modal-content  is-image">
+              <img src="https://source.unsplash.com/random/?sig=3" alt="Bikes on sale">
+            </div>
+            <button class="modal-close is-large"></button>
+          </div>
         </div>
 
-        <div class="tab-pane" id="pane-3" role="tabpanel" aria-labeledby="tab3">
+        <div class="tab-pane" id="pane-3" role="tabpanel" aria-labelledby="tab3">
           <div class="columns medias">
             <div class="column">
               <div class="media">
                 <div class="media-left">
-                  <i class="fab fa-github-square fa-4x" aria-hidden="true"></i>
+                  <span class="fab fa-github-square fa-4x" aria-hidden="true"></span> 
                 </div>
                 <div class="media-content">
                   <div class="content">
@@ -457,7 +511,7 @@
               </div>
               <div class="media">
                 <div class="media-left">
-                  <i class="fab fa-empire fa-4x" aria-hidden="true"></i>
+                  <span class="fab fa-empire fa-4x" aria-hidden="true"></span> 
                 </div>
                 <div class="media-content">
                   <div class="content">
@@ -472,7 +526,7 @@
             <div class="column">
               <div class="media">
                 <div class="media-left">
-                  <i class="fab fa-ravelry fa-4x" aria-hidden="true"></i>
+                  <span class="fab fa-ravelry fa-4x" aria-hidden="true"></span> 
                 </div>
                 <div class="media-content">
                   <div class="content">
@@ -485,7 +539,7 @@
               </div>
               <div class="media">
                 <div class="media-left">
-                  <i class="fab fa-github-alt fa-4x" aria-hidden="true"></i>
+                  <span class="fab fa-github-alt fa-4x" aria-hidden="true"></span> 
                 </div>
                 <div class="media-content">
                   <div class="content">
@@ -500,12 +554,12 @@
           </div>
         </div>
 
-        <div class="tab-pane" id="pane-4" role="tabpanel" aria-labeledby="tab4">
+        <div class="tab-pane" id="pane-4" role="tabpanel" aria-labelledby="tab4">
           <div class="columns is-centered">
             <div class="column is-three-quarters">
               <div class="title has-text-centered">Inspired video</div>
               <div class="embed-container image">
-                <iframe src="https://player.vimeo.com/video/261794608" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                <iframe src="https://player.vimeo.com/video/261794608" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
               </div>
 
               <div class="video-transcript">
@@ -520,7 +574,7 @@
           </div>
         </div>
 
-        <div class="tab-pane is-active" id="pane-2" role="tabpanel" aria-labeledby="tab2">
+        <div class="tab-pane is-active" id="pane-2" role="tabpanel" aria-labelledby="tab2">
           <div class="content">
             <div class="is-1 title" role="heading" aria-level="1">Hello World</div>
             <p>Lorem ipsum<sup><a href="#">[1]</a></sup> dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque. Sub<sub>script</sub> works as well!</p>
@@ -946,7 +1000,7 @@
                     </div>
                   </div>
                   <div class="media-right">
-                    <span class="has-text-grey-light"><i class="fa fa-comments" aria-hidden="true"></i> 1</span>
+                    <span class="has-text-grey-light"><span class="fa fa-comments" aria-hidden="true"></span>  1</span>
                   </div>
                 </div>
               </div>
@@ -968,7 +1022,7 @@
                     </div>
                   </div>
                   <div class="media-right">
-                    <span class="has-text-grey-light"><i class="fa fa-comments" aria-hidden="true"></i> 0</span>
+                    <span class="has-text-grey-light"><span class="fa fa-comments" aria-hidden="true"></span>  0</span>
                   </div>
                 </div>
               </div>
@@ -990,7 +1044,7 @@
                     </div>
                   </div>
                   <div class="media-right">
-                    <span class="has-text-grey-light"><i class="fa fa-comments" aria-hidden="true"></i> 13</span>
+                    <span class="has-text-grey-light"><span class="fa fa-comments" aria-hidden="true"></span>  13</span>
                   </div>
                 </div>
               </div>
@@ -1012,7 +1066,7 @@
                     </div>
                   </div>
                   <div class="media-right">
-                    <span class="has-text-grey-light"><i class="fa fa-comments" aria-hidden="true"></i> 2</span>
+                    <span class="has-text-grey-light"><span class="fa fa-comments" aria-hidden="true"></span>  2</span>
                   </div>
                 </div>
               </div>
@@ -1034,7 +1088,7 @@
                     </div>
                   </div>
                   <div class="media-right">
-                    <span class="has-text-grey-light"><i class="fa fa-comments" aria-hidden="true"></i> 2</span>
+                    <span class="has-text-grey-light"><span class="fa fa-comments" aria-hidden="true"></span>  2</span>
                   </div>
                 </div>
               </div>
@@ -1056,7 +1110,7 @@
                     </div>
                   </div>
                   <div class="media-right">
-                    <span class="has-text-grey-light"><i class="fa fa-comments" aria-hidden="true"></i> 2</span>
+                    <span class="has-text-grey-light"><span class="fa fa-comments" aria-hidden="true"></span>  2</span>
                   </div>
                 </div>
               </div>
@@ -1095,10 +1149,10 @@
               <div class="control has-icons-left has-icons-right">
                 <input class="input is-success" type="text" id="username" placeholder="Pick up a username">
                 <span class="icon is-small is-left">
-                  <i class="fas fa-user" aria-hidden="true"></i>
+                  <span class="fas fa-user" aria-hidden="true"></span> 
                 </span>
                 <span class="icon is-small is-right">
-                  <i class="fas fa-check" aria-hidden="true"></i>
+                  <span class="fas fa-check" aria-hidden="true"></span> 
                 </span>
               </div>
               <p class="help is-success">This username is available</p>
@@ -1109,10 +1163,10 @@
               <div class="control has-icons-left has-icons-right">
                 <input class="input is-danger" type="email" placeholder="Enter your email" aria-invalid="true" value="hello@" id="email">
                 <span class="icon is-small is-left">
-                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                  <span class="fas fa-envelope" aria-hidden="true"></span> 
                 </span>
                 <span class="icon is-small is-right">
-                  <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                  <span class="fas fa-exclamation-triangle" aria-hidden="true"></span> 
                 </span>
               </div>
               <p class="help is-danger">This email is invalid</p>
@@ -1195,7 +1249,7 @@
             <div class="notification media has-background-white">
               <div class="media-left">
                 <span class="icon">
-                  <i class="has-text-warning fas fa-columns fa-lg" aria-hidden="true"></i>
+                  <span class="has-text-warning fas fa-columns fa-lg" aria-hidden="true"></span> 
                 </span>
               </div>
               <div class="media-content">
@@ -1212,7 +1266,7 @@
             <div class="notification has-background-white media">
               <div class="media-left">
                 <span class="icon has-text-info">
-                  <i class="fab fa-lg fa-wpforms" aria-hidden="true"></i>
+                  <span class="fab fa-lg fa-wpforms" aria-hidden="true"></span> 
                 </span>
               </div>
               <div class="media-content">
@@ -1229,7 +1283,7 @@
             <div class="notification has-background-white media">
               <div class="media-left">
                 <span class="icon has-text-danger">
-                  <i class="fas fa-lg fa-cubes" aria-hidden="true"></i>
+                  <span class="fas fa-lg fa-cubes" aria-hidden="true"></span> 
                 </span>
               </div>
               <div class="media-content">
@@ -1246,7 +1300,7 @@
             <div class="notification has-background-white media">
               <div class="media-left">
                 <span class="icon has-text-grey">
-                  <i class="fas fa-lg fa-cogs" aria-hidden="true"></i>
+                  <span class="fas fa-lg fa-cogs" aria-hidden="true"></span> 
                 </span>
               </div>
               <div class="media-content">
@@ -1263,7 +1317,7 @@
             <div class="notification has-background-white media">
               <div class="media-left">
                 <span class="icon has-text-primary">
-                  <i class="fas fa-lg fa-warehouse" aria-hidden="true"></i>
+                  <span class="fas fa-lg fa-warehouse" aria-hidden="true"></span> 
                 </span>
               </div>
               <div class="media-content">
@@ -1280,7 +1334,7 @@
             <div class="notification has-background-white media">
               <div class="media-left">
                 <span class="icon has-text-danger">
-                  <i class="fas fa-lg fa-cube" aria-hidden="true"></i>
+                  <span class="fas fa-lg fa-cube" aria-hidden="true"></span> 
                 </span>
               </div>
               <div class="media-content">
@@ -1339,10 +1393,10 @@
 
       <div class="content has-text-centered">
         <div class="soc">
-          <a href="#" aria-label="follow on Github"><i class="fab fa-github-alt fa-2x" aria-hidden="true"></i></a>
-          <a href="#" aria-label="follow on Youtube"><i class="fab fa-youtube fa-2x" aria-hidden="true"></i></a>
-          <a href="#" aria-label="follow on Facebook"><i class="fab fa-facebook fa-2x" aria-hidden="true"></i></a>
-          <a href="#" aria-label="follow on Twitter"><i class="fab fa-twitter fa-2x" aria-hidden="true"></i></a>
+          <a href="#" aria-label="follow on Github"><span class="fab fa-github-alt fa-2x" aria-hidden="true"></span> </a>
+          <a href="#" aria-label="follow on Youtube"><span class="fab fa-youtube fa-2x" aria-hidden="true"></span> </a>
+          <a href="#" aria-label="follow on Facebook"><span class="fab fa-facebook fa-2x" aria-hidden="true"></span> </a>
+          <a href="#" aria-label="follow on Twitter"><span class="fab fa-twitter fa-2x" aria-hidden="true"></span> </a>
         </div>
         <p>The source code is licensed <a href="http://opensource.org/licenses/mit-license.php" class="in-new-window" target="_blank">MIT</a>.</p>
       </div>
@@ -1350,59 +1404,7 @@
   </footer>
 
 
-  <div id="modal-image1" class="modal modal-fx-3dSlit" aria-modal="true" role="dialog">
-    <div class="modal-background"></div>
-    <div class="modal-content is-huge is-image">
-      <img src="https://source.unsplash.com/random/?sig=1" alt="Photographer's vaction">
-    </div>
-    <button class="modal-close is-large"></button>
-  </div>
-
-  <div id="modal-card" class="modal modal-fx-3dSlit" aria-modal="true" role="dialog">
-    <div class="modal-background"></div>
-    <div class="modal-content is-tiny">
-      <div class="card">
-        <div class="card-image">
-          <div class="image is-4by3">
-            <img src="https://source.unsplash.com/random/?sig=2" alt="Public transport in NYC">
-          </div>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <div class="image is-48x48">
-                <img src="http://www.radfaces.com/images/avatars/linda-barret.jpg" alt="Lind Barret portrait">
-              </div>
-            </div>
-            <div class="media-content">
-              <div class="title is-4">Jane Doe</div>
-              <div class="subtitle is-6">@jane_doe</div>
-            </div>
-          </div>
-          <div class="content">
-            Laum Ipsum junkah potatoes bookin' it. Moosetown rig up I'm tellin' you way up north bookin' it can't get theyah from heeyah native bean suppah whawf Powrtland Museum of Aht, back woods hawsun around the pit mummah Yessah, mummah muckle riyht on'ta her
-            Bean's dinnahbucket bub geez bud sumpin' fierce ayuhpawt Bangah naw, Powrtland Museum of Aht down cellah sumpin' fierce hoppa bub If you can't stand the wintah you don't deserve the summah slower than molasses going uphill in January.
-            Sgn'wahl shoggor hrii uaaah R'lyeh uh'e k'yarnak Hastur hupadgh li'hee, hai f'nilgh'ri nilgh'ri n'ghftor ngftaghu vulgtlagln h'hrii throd Nyarlathotep lloig, naflsll'ha nnnsll'ha athg y-ebunma goka chtenff ehyeog cehye. Zhro y'hah
-            nogoth phlegeth stell'bsna orr'e ph'Hastur gnaiih throd, uln ya lw'nafh mg nar'luh li'hee wgah'n, sgn'wahl mg nakadishtu chlirgh hupadgh tharanak h'gnaiih.
-            <a href="#" aria-label="read more testio">@testio</a>.
-            <a href="#" aria-label="read more css">#css</a>
-            <a href="#" aria-label="read more responsive">#responsive</a>
-            <br>
-            <time datetime="2018-02-02">12:45 AM - 20 June 2018</time>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="modal-close is-large"></button>
-  </div>
-
-  <div id="modal-image2" class="modal modal-fx-superScaled" aria-modal="true" role="dialog">
-    <div class="modal-background"></div>
-    <div class="modal-content  is-image">
-      <img src="https://source.unsplash.com/random/?sig=3" alt="Bikes on sale">
-    </div>
-    <button class="modal-close is-large"></button>
-  </div>
+  
   
 
   
