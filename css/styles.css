@@ -193,6 +193,12 @@ a,
 }
  
 
+.hero.is-info .tabs.is-boxed li.is-active a:hover, 
+.hero.is-info .tabs.is-toggle li.is-active a:hover,
+.hero.is-info a:not(.button):not(.dropdown-item):not(.tag):hover {
+  text-decoration: underline;
+}
+
 .tag:not(body).is-primary {
     background-color: #067564;
 }
@@ -403,6 +409,14 @@ fieldset:not(:last-child) {
 }
 .video-transcript p {
   margin: 0 0 10px;
+}
+
+.button[aria-disabled="true"] {
+  background-color: #3273dc;
+  border-color: transparent;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: .5;
 }
 
 
