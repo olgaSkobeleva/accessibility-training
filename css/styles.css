@@ -190,8 +190,7 @@ a,
 .hero.is-info .tabs.is-toggle li.is-active a:hover,
 .hero.is-info a:not(.button):not(.dropdown-item):not(.tag) {
   color: #0a478e;
-}
- 
+} 
 
 a:not(.is-white):hover,
 .hero.is-info .tabs.is-boxed li.is-active a:hover, 
