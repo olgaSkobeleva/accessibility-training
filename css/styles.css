@@ -154,7 +154,8 @@ a.box:focus,
 input[type=radio]:focus,
 input[type=checkbox]:focus,
 .hero.is-info .tabs.is-boxed button:focus,
-.navbar-burger:focus { 
+.navbar-burger:focus,
+.tab-pane:focus { 
   box-shadow: none;
   outline: 2px rgba(235,115,0,.8) solid;
   border-color: transparent;
@@ -424,8 +425,14 @@ fieldset:not(:last-child) {
   opacity: .5;
 }
 
-.hero.is-info .tabs.is-boxed .is-active,
-.hero.is-info .tabs.is-boxed .is-active:hover {
+.tab-list {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero.is-info .tabs.is-boxed .tab-button.is-active,
+.hero.is-info .tabs.is-boxed .tab-button.is-active:hover {
   background: white;
   border-color: white;
   color: #0a478e;
