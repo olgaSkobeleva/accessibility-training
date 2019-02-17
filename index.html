@@ -350,27 +350,27 @@
         </div>
       </div>
       <div class="tabs is-boxed is-centered main-menu" id="nav">
-        <ul role="tablist">
-          <li data-target="pane-1" id="tab1" role="tab" aria-selected="false">
-            <button >
+        <ul role="tablist" aria-labelledby="topics">
+          <li>
+            <button data-target="pane-1" id="tab1" role="tab" aria-selected="false" tabindex="-1">
               <span class="icon is-small"><span class="fa fa-image" aria-hidden="true"></span> </span>
               <span>Pictures</span>
             </button>
           </li>
-          <li data-target="pane-2" id="tab2" class="is-active" role="tab" aria-selected="true">
-            <button>
+          <li>
+            <button data-target="pane-2" id="tab2" class="is-active" role="tab" aria-selected="true">
               <span class="icon is-small"><span class="fab fa-empire" aria-hidden="true"></span> </span>
               <span>Article</span>
             </button>
           </li> 
-          <li data-target="pane-3" id="tab3" role="tab" aria-selected="false">
-            <button>
-              <span class="icon is-small"><span class="fab fa-superpowers" aria-hidden="true"></span> </span>
+          <li>
+            <button data-target="pane-3" id="tab3" role="tab" aria-selected="false" tabindex="-1">
+              <span class="icon is-small"><span class="fab fa-superpowers" aria-hidden="true" ></span> </span>
               <span>Team</span>
             </button>
           </li>
-          <li data-target="pane-4" id="tab4" role="tab" aria-selected="false">
-            <button>
+          <li>
+            <button data-target="pane-4" id="tab4" role="tab" aria-selected="false" tabindex="-1">
               <span class="icon is-small"><span class="fa fa-film" aria-hidden="true"></span> </span>
               <span>Video</span>
             </button>
@@ -379,7 +379,7 @@
       </div>
 
       <div class="tab-content container">
-        <div class="tab-pane" id="pane-1" class="level" role="tabpanel" aria-labelledby="tab1">
+        <div class="tab-pane" id="pane-1" class="level" role="tabpanel" aria-labelledby="tab1" tabindex="0">
           <div class="container">
             <div class="columns features">
               <div class="column is-4">
@@ -586,7 +586,7 @@
           </div>
         </div>
         
-        <div class="tab-pane" id="pane-3" role="tabpanel" aria-labelledby="tab3">
+        <div class="tab-pane" id="pane-3" role="tabpanel" aria-labelledby="tab3" tabindex="0">
           <div class="columns medias">
             <div class="column">
               <div class="media">
@@ -647,7 +647,7 @@
           </div>
         </div>
 
-        <div class="tab-pane" id="pane-4" role="tabpanel" aria-labelledby="tab4">
+        <div class="tab-pane" id="pane-4" role="tabpanel" aria-labelledby="tab4" tabindex="0">
           <div class="columns is-centered">
             <div class="column is-three-quarters">
               <div class="title has-text-centered">Inspired video</div>

@@ -12,9 +12,13 @@
 
 })();
 
-document.querySelectorAll("#nav li").forEach(function(navEl) {
+document.querySelectorAll("#nav button").forEach(function(navEl) {
   navEl.onclick = function() {
     toggleTab(this.id, this.dataset.target);
+  };
+
+  navEl.onkeyup = function(event) {
+    toggleTabKeyboard(this.id, event);
   };
 });
 
@@ -22,15 +26,41 @@ document.querySelector(".toggleSkipnav").onclick = function() {
   this.parentNode.classList.toggle("is-active");
 };
 
+function toggleTabKeyboard(selectedNav, event) {
+  
+  var idToActivate = selectedNav.slice(3);
+  var currentTab = document.querySelector("#" + selectedNav);
+  var tabToActivate = "";
+
+  if (event.which == 37) {
+    idToActivate --;
+  } else {
+    if (event.which == 39) {
+      idToActivate ++;
+    }
+  }
+  
+  tabToActivate = document.querySelector("#tab" + idToActivate);
+
+  toggleTab(tabToActivate.id, tabToActivate.dataset.target);
+  currentTab.blur();
+  tabToActivate.focus();
+    
+}
+
 function toggleTab(selectedNav, targetId) {
-  var navEls = document.querySelectorAll("#nav li");
+  var navEls = document.querySelectorAll("#nav button");
   
   navEls.forEach(function(navEl) {
     if (navEl.id == selectedNav) {
       navEl.classList.add("is-active");
+      navEl.setAttribute("aria-selected", true);
+      navEl.setAttribute("tabindex", "");
     } else {
       if (navEl.classList.contains("is-active")) {
         navEl.classList.remove("is-active");
+        navEl.setAttribute("aria-selected", false);
+        navEl.setAttribute("tabindex", "-1");
       }
     }
   });
@@ -40,8 +70,10 @@ function toggleTab(selectedNav, targetId) {
   tabs.forEach(function(tab) {
     if (tab.id == targetId) {
       tab.style.display = "block";
+      tab.removeAttribute("tabindex");
     } else {
       tab.style.display = "none";
+      tab.setAttribute("tabindex", 0);
     }
   });
 }
