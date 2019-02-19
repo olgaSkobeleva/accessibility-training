@@ -2,15 +2,57 @@
   var burger = document.querySelector(".burger");
   var navBlock = document.querySelector(".navbar");
   var menu = document.querySelector("#" + burger.dataset.target);
+  var mainMenuItems = document.querySelectorAll("#navbarMenu .navbar-item a");
   burger.addEventListener("click", function() {
     navBlock.classList.toggle("is-active");
     burger.classList.toggle("is-active");
     menu.classList.toggle("is-active");
+
+    mainMenuItems.forEach(function(item) {
+      if (burger.classList.contains("is-active")) {
+        burger.setAttribute("aria-expanded", true);
+        item.setAttribute("tabindex", "-1");
+        
+        burger.onkeyup = function(event) {
+          if (event.which == 32 || 13 ) { 
+            mainMenuItems[0].setAttribute("tabindex", 0);
+            mainMenuItems[0].focus();
+          }
+        }
+      }
+      else {
+        burger.setAttribute("aria-expanded", false);
+        item.removeAttribute("tabindex");
+      } 
+
+      item.onkeyup = function() {
+        var elToFocus;
+
+        switch (event.which) {
+          case 40:
+            elToFocus = item.parentElement.nextElementSibling.firstElementChild;  
+            break;
+
+          case 38:
+            elToFocus = item.parentElement.previousElementSibling.firstElementChild; 
+            break;
+        }
+
+        item.setAttribute("tabindex", "-1");
+        item.blur();
+        elToFocus.setAttribute("tabindex", 0);
+        elToFocus.focus();  
+      }
+    });
   });
 
   setInterval(function(){addFakeMessage()}, 10000);
 
+  
+
 })();
+
+
 
 document.querySelectorAll("#nav button").forEach(function(navEl) {
   navEl.onclick = function() {

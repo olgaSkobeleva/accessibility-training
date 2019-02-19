@@ -445,7 +445,7 @@ fieldset:not(:last-child) {
     display: block;
   }
   .navbar-menu {
-    background-color: #888;
+    background-color: #222;
   }
 }
 
