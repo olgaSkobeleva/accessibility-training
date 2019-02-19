@@ -25,16 +25,18 @@
         item.removeAttribute("tabindex");
       } 
 
-      item.onkeyup = function() {
+      item.onkeyup = function(event) {
         var elToFocus;
+        var menuList = item.parentElement.parentElement;
 
         switch (event.which) {
           case 40:
-            elToFocus = item.parentElement.nextElementSibling.firstElementChild;  
+            elToFocus = item.parentElement === menuList.lastElementChild ? menuList.firstElementChild.firstElementChild : item.parentElement.nextElementSibling.firstElementChild;  
             break;
 
           case 38:
-            elToFocus = item.parentElement.previousElementSibling.firstElementChild; 
+            elToFocus = item.parentElement === menuList.firstElementChild ?
+            menuList.lastElementChild.firstElementChild : item.parentElement.previousElementSibling.firstElementChild; 
             break;
         }
 
