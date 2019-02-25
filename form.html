@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Web Accessibility 2019 Q1 BY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css'>
+  <link rel='stylesheet prefetch' href='https://use.fontawesome.com/releases/v5.0.10/css/all.css'>
+  <link rel="stylesheet prefetch" href="css/styles.css">
+</head>
+
+<body>
+ 
+  
+
+  <main id="main-content">
+   
+
+    <section aria-labelledby="contact-us" class="section has-background-light" id="contact-form">
+      <div class="container">
+        <div class="section-heading has-text-centered">
+          <h2 class="title is-2" id="contact-us">Contact us</h2>
+          <div class="subtitle is-5">Don't hesitate, ask anything</div>
+        </div>
+
+        <form aria-labelledby="contact" class="column is-half is-offset-one-quarter box" id="mainForm" onsubmit="formValidation(); return false;" action="#" novalidate>
+          <fieldset class="visually-hidden">
+            <legend id="contact">Contact us</legend>  
+          </fieldset>
+
+          <p aria-hidden="true" class="req-msg">Required fields are marked with <span>*</span></p>
+          
+         
+            
+            
+            <div class="field required">
+                <label class="label" for="username">Username</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" id="username" placeholder="Pick up a username" aria-required="true" aria-describedby="username-help">
+                  <span class="icon is-small is-left">
+                    <span class="fas fa-user" aria-hidden="true"></span> 
+                  </span>                  
+                </div>
+                <p class="help" id="username-help"></p>
+              </div>
+
+            <fieldset>    
+                <legend class="visually-hidden">Full name</legend>
+
+                <div class="field required">
+                    <label class="label" for="your-name">First Name</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="text" placeholder="Enter first name" id="your-name" aria-required="true" aria-describedby="firstname-help">
+                        <span class="icon is-small is-left">
+                            <span class="fas fa-user" aria-hidden="true"></span> 
+                        </span>
+                    </div>
+                    <p class="help" id="firstname-help"></p>
+                </div>
+
+                <div class="field required">
+                <label class="label" for="last-name">Last Name</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Enter last name" id="last-name" aria-required="true" aria-describedby="lastname-help">
+                    <span class="icon is-small is-left">
+                        <span class="fas fa-user" aria-hidden="true"></span> 
+                    </span>
+                </div>
+                    <p class="help" id="lastname-help"></p>
+                </div>
+            </fieldset>  
+
+            <div class="field">
+                <label class="label" for="year">Year of birth</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Enter year of birth, ex. 1999" id="year" aria-disabled="true" aria-describedby="year-help">
+                    <span class="icon is-small is-left">
+                        <span class="fas fa-user" aria-hidden="true"></span> 
+                    </span>
+                </div>
+                <p class="help" id="year-help"></p>
+            </div>
+
+            <div class="field required">
+              <label class="label" for="phone">Phone</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" id="phone" placeholder="Enter phone, ex.2225577" aria-describedby="phone-help" aria-required="true">
+                <span class="icon is-small is-left">
+                  <span class="fas fa-phone" aria-hidden="true"></span> 
+                </span>
+              </div>
+              <p class="help" id="phone-help"></p>
+            </div>
+
+            <div class="field required">
+              <label class="label" for="address">Address</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" id="address" placeholder="Enter address, ex. Park Ave, 103" aria-describedby="address-help" aria-required="true">
+                <span class="icon is-small is-left">
+                  <span class="fas fa-home" aria-hidden="true"></span> 
+                </span>
+              </div>
+              <p class="help" id="address-help"></p>
+            </div>
+
+            <div class="field">
+              <label class="label" for="zipcode">Zipcode</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" id="zipcode" placeholder="Enter zipcode, ex. 220012">
+                <span class="icon is-small is-left">
+                    <span class="fas fa-envelope" aria-hidden="true"></span> 
+                </span>
+              </div>
+              <p class="help"></p>
+            </div>
+
+            <div class="field required">
+              <label class="label" for="your-email">Email</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="email" placeholder="Enter your email, ex. hello@mail.ru" value="" id="your-email" aria-required="true" aria-required="true">
+                <span class="icon is-small is-left">
+                  <span class="fas fa-envelope" aria-hidden="true"></span> 
+                </span>
+              </div>
+              <p class="help"></p>
+            </div>
+          
+
+          <fieldset>
+            <div class="field is-grouped">
+              <legend class="visually-hidden">Form actions</legend>
+              <div class="control">
+                <button class="button is-link" type="submit">Submit</button>
+              </div>
+              <div class="control">
+                <button class="button is-text" type="reset">Cancel</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+      
+  </main>
+
+   
+
+  
+
+  <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+  <script async src="js/customF-new.js"></script>
+</body>
+</html>

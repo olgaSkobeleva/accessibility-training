@@ -11,17 +11,19 @@
 </head>
 
 <body>
-  <a href="#main-content" class="visually-hidden skip-link">Skip to main content</a>
-  <div class="skipnav">
-    <button class="toggleSkipnav visually-hidden">Skip naviagtion to...</button>
-    <ul class="skipnav-dropdown">
-      <li class="skip-title">Skip To</li>
-      <li><a href="#main-content" class="skip-link">main content</a></li>
-      <li><a href="#footer" class="skip-link">footer</a></li>
-    </ul>  
-  </div>
-
+ 
   <header>
+    <!-- <a href="#main-content" class="visually-hidden skip-link">Skip to main content</a> -->
+    <div class="skipnav">
+      <button class="toggleSkipnav visually-hidden">Skip naviagtion to...</button>
+      <ul class="skipnav-dropdown">
+        <li class="skip-title">Skip To</li>
+        <li><a href="#main-content" class="skip-link">main content</a></li>
+        <li><a href="#contact-form" class="skip-link">contact form</a></li>
+        <li><a href="#footer" class="skip-link">footer</a></li>
+      </ul>  
+    </div>
+    
     <div class="hero-head">
         <div class="navbar">
           <div class="container">
@@ -44,6 +46,14 @@
                       <span class="fa fa-home" aria-hidden="true"></span> 
                     </span>
                     <span>Home</span>
+                  </a>
+                </li>
+                <li class="navbar-item">
+                  <a href="#contact-form" class="button is-white is-outlined">
+                    <span class="icon">
+                      <span class="far fa-envelope" aria-hidden="true"></span> 
+                    </span>
+                    <span>Contact us</span>
                   </a>
                 </li>
                 <li class="navbar-item">
@@ -1114,45 +1124,83 @@
       </div>
     </section>
 
-    <section aria-labelledby="contact-us" class="section has-background-light">
+    <section aria-labelledby="contact-us" class="section has-background-light" id="contact-form">
       <div class="container">
         <div class="section-heading has-text-centered">
           <h2 class="title is-2" id="contact-us">Contact us</h2>
           <div class="subtitle is-5">Don't hesitate, ask anything</div>
         </div>
 
-        <form aria-labelledby="contact" class="column is-half is-offset-one-quarter box">
+        <form aria-labelledby="contact" class="column is-half is-offset-one-quarter box" id="mainForm" onsubmit="formValidation(); return false;">
           <fieldset class="visually-hidden">
             <legend id="contact">Contact us</legend>  
           </fieldset>
           
           <fieldset>
             <legend class="visually-hidden">Personal info</legend>
+            
+            <div class="field">
+                <label class="label" for="username">Username</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" id="username" placeholder="Pick up a username" aria-required="true" aria-invalid="false">
+                  <span class="icon is-small is-left">
+                    <span class="fas fa-user" aria-hidden="true"></span> 
+                  </span>                  
+                </div>
+                <p class="help"></p>
+                <!-- <p class="help is-success">This username is available</p> -->
+              </div>
+            
             <div class="field">
               <label class="label" for="your-name">
                 <span class="visually-hidden">Personal:</span>
-                  Name
+                  First Name
               </label>
               <div class="control">
-                <input class="input" type="text" placeholder="Enter your name" id="your-name">
+                <input class="input" type="text" placeholder="Enter first name" id="your-name">
               </div>
             </div>
 
             <div class="field">
-              <label class="label" for="username">Username</label>
-              <div class="control has-icons-left has-icons-right">
-                <input class="input is-success" type="text" id="username" placeholder="Pick up a username">
+              <label class="label" for="last-name">
+                <span class="visually-hidden">Personal:</span>
+                 Last Name
+              </label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Enter last name" id="last-name">
+              </div>
+            </div>
+
+            
+
+            <div class="field">
+              <label class="label" for="phone">Phone</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" id="phone" placeholder="222 55 77">
                 <span class="icon is-small is-left">
-                  <span class="fas fa-user" aria-hidden="true"></span> 
-                </span>
-                <span class="icon is-small is-right">
-                  <span class="fas fa-check" aria-hidden="true"></span> 
+                  <span class="fas fa-phone" aria-hidden="true"></span> 
                 </span>
               </div>
-              <p class="help is-success">This username is available</p>
             </div>
 
             <div class="field">
+              <label class="label" for="address">Address</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" id="address" placeholder="Park Ave, 103">
+                <span class="icon is-small is-left">
+                  <span class="fas fa-home" aria-hidden="true"></span> 
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="zipcode">Zipcode</label>
+              <div class="control">
+                <input class="input" type="text" id="zipcode" placeholder="220012">
+                </div>
+            </div>
+
+            <!-- <div class="field">
               <label class="label" for="email">Email</label>
               <div class="control has-icons-left has-icons-right">
                 <input class="input is-danger" type="email" placeholder="Enter your email" aria-invalid="true" value="hello@" id="email">
@@ -1164,67 +1212,14 @@
                 </span>
               </div>
               <p class="help is-danger">This email is invalid</p>
-            </div>
+            </div> -->
           </fieldset>  
-
-          <fieldset>
-            <legend class="visually-hidden">Message info</legend>
-            <div class="field">
-              <label class="label" for="subject">
-                <span class="visually-hidden">Message's:</span>
-                Subject
-              </label>
-              <div class="control">
-                <div class="select">
-                  <select id="subject">
-                    <optgroup label="List of the options">
-                      <option>Select dropdown</option>
-                      <option>With options</option>
-                    </optgroup>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="field">
-              <label class="label" for="msg">Message</label>
-              <div class="control">
-                <textarea class="textarea" placeholder="Enter your mesasage here" id="msg"></textarea>
-              </div>
-            </div>
-          </fieldset>  
-
-          <fieldset>
-            <legend class="visually-hidden">Terms and conditions</legend>
-            <div class="field">
-              <div class="control">
-                <label class="checkbox" for="terms">
-                  <span class="visually-hidden">Question:</span>
-                  <input type="checkbox" id="terms" aria-required="true" aria-checked="false">
-                  I agree to the <a href="#">terms and conditions</a>
-                </label>
-              </div>
-            </div>
-
-            <div class="field">
-              <div class="control">
-                <label class="radio" for="yes">
-                  <input type="radio" name="question" id="yes" aria-checked="false">
-                  Yes
-                </label>
-                <label class="radio" for="no">
-                  <input type="radio" name="question" id="no" aria-checked="false">
-                  No
-                </label>
-              </div>
-            </div>
-          </fieldset>
 
           <fieldset>
             <div class="field is-grouped">
               <legend class="visually-hidden">Form actions</legend>
               <div class="control">
-                <button class="button is-link" type="submit" aria-disabled="true">Submit</button>
+                <button class="button is-link" type="submit">Submit</button>
               </div>
               <div class="control">
                 <button class="button is-text" type="reset">Cancel</button>
@@ -1282,7 +1277,7 @@
               </div>
               <div class="media-content">
                 <div class="content">
-                  <h1 class="title is-size-4">Components</h1>
+                  <p class="title is-size-4">Components</p>
                   <p class="is-size-5 subtitle">
                     Advanced multi-part components with lots of possibilities
                   </p>

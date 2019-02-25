@@ -48,7 +48,7 @@
     });
   });
 
-  setInterval(function(){addFakeMessage()}, 10000);
+  // setInterval(function(){addFakeMessage()}, 10000);
 
   
 
@@ -138,3 +138,46 @@ function addFakeMessage() {
 
   postsContainer.insertBefore(msg, postsContainer.children[0]);
 }
+
+var nikNames = [];
+
+function formValidation() {
+  
+  var nikField = document.querySelector("#username"),
+  nik = nikField.value,
+  error,
+  successTxt,
+  iconCheck = "<span class=\"fas fa-check\" aria-hidden=\"true\"></span>";
+  
+  if (nik.length == 0) {
+    error = "Please fill the field Username";
+  }
+  else if (nik == "da") { // part of array
+    error = "This username is not available. Please create another one";
+  }
+  else {
+    nikNames.push(nik);
+    nikField.classList.remove("is-danger");
+    nikField.classList.add("is-success");
+    
+    successTxt = "The username is accepted";
+    nikField.parentElement.nextElementSibling.innerHTML = successTxt;
+    nikField.parentElement.appendChild("<span class=\"icon is-small is-right\" />");
+  }
+
+  if (error) {
+    nikField.parentElement.nextElementSibling.classList.add("is-danger");
+    nikField.parentElement.nextElementSibling.innerHTML = error;
+
+    nikField.classList.add("is-danger");
+    nikField.classList.remove("is-success");
+    nikField.focus();
+  }
+  
+
+  
+
+  
+  console.log(nikNames);
+}
+

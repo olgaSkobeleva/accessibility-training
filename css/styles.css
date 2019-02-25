@@ -425,6 +425,12 @@ fieldset:not(:last-child) {
   opacity: .5;
 }
 
+input[aria-disabled="true"] {
+  background: #eee;
+  cursor: not-allowed;
+  opacity: .5;
+}
+
 .tab-list {
   display: flex;
   justify-content: center;
@@ -454,3 +460,22 @@ fieldset:not(:last-child) {
       display: none !important;
   }
 }
+
+/* Form validation */
+
+.req-msg {
+  font-size: 14px; 
+  margin-bottom: 1em;
+}
+
+.req-msg span {
+  font-weight: bold;
+  color: red;
+}
+
+.required label:after {
+  content: "*";
+  color: red;
+  margin-left: 3px;
+}
+
