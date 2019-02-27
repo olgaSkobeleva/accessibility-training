@@ -17,16 +17,16 @@
   <main id="main-content">
    
 
-    <section aria-labelledby="contact-us" class="section has-background-light" id="contact-form">
+    <section aria-labelledby="register-team" class="section has-background-light" id="register-form">
       <div class="container">
         <div class="section-heading has-text-centered">
-          <h2 class="title is-2" id="contact-us">Contact us</h2>
+          <h2 class="title is-2" id="register-team">Register My team</h2>
           <div class="subtitle is-5">Don't hesitate, ask anything</div>
         </div>
 
-        <form aria-labelledby="contact" class="column is-half is-offset-one-quarter box" id="mainForm" onsubmit="formValidation(); return false;" action="#" novalidate>
+        <form aria-labelledby="register" class="column is-half is-offset-one-quarter box" id="mainForm" onsubmit="formValidation(); return false;" action="#" novalidate>
           <fieldset class="visually-hidden">
-            <legend id="contact">Contact us</legend>  
+            <legend id="register">Register my team</legend>  
           </fieldset>
 
           <p aria-hidden="true" class="req-msg">Required fields are marked with <span>*</span></p>
@@ -40,7 +40,10 @@
                   <input class="input" type="text" id="username" placeholder="Pick up a username" aria-required="true" aria-describedby="username-help">
                   <span class="icon is-small is-left">
                     <span class="fas fa-user" aria-hidden="true"></span> 
-                  </span>                  
+                  </span>                 
+                  <span class="icon is-small is-right">
+                    <span class="fas" aria-hidden="true"></span>
+                  </span> 
                 </div>
                 <p class="help" id="username-help"></p>
               </div>
@@ -55,6 +58,9 @@
                         <span class="icon is-small is-left">
                             <span class="fas fa-user" aria-hidden="true"></span> 
                         </span>
+                        <span class="icon is-small is-right">
+                          <span class="fas" aria-hidden="true"></span>
+                        </span> 
                     </div>
                     <p class="help" id="firstname-help"></p>
                 </div>
@@ -66,6 +72,9 @@
                     <span class="icon is-small is-left">
                         <span class="fas fa-user" aria-hidden="true"></span> 
                     </span>
+                    <span class="icon is-small is-right">
+                      <span class="fas" aria-hidden="true"></span>
+                    </span> 
                 </div>
                     <p class="help" id="lastname-help"></p>
                 </div>
@@ -74,10 +83,13 @@
             <div class="field">
                 <label class="label" for="year">Year of birth</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input" type="text" placeholder="Enter year of birth, ex. 1999" id="year" aria-disabled="true" aria-describedby="year-help">
+                    <input class="input" type="text" placeholder="Enter year of birth, example 1999" id="year" aria-disabled="true" aria-describedby="year-help">
                     <span class="icon is-small is-left">
                         <span class="fas fa-user" aria-hidden="true"></span> 
                     </span>
+                    <span class="icon is-small is-right">
+                      <span class="fas" aria-hidden="true"></span>
+                    </span> 
                 </div>
                 <p class="help" id="year-help"></p>
             </div>
@@ -85,10 +97,13 @@
             <div class="field required">
               <label class="label" for="phone">Phone</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input" type="text" id="phone" placeholder="Enter phone, ex.2225577" aria-describedby="phone-help" aria-required="true">
+                <input class="input" type="text" id="phone" placeholder="Enter phone, example 2225577" aria-describedby="phone-help" aria-required="true">
                 <span class="icon is-small is-left">
                   <span class="fas fa-phone" aria-hidden="true"></span> 
                 </span>
+                <span class="icon is-small is-right">
+                    <span class="fas" aria-hidden="true"></span>
+                  </span> 
               </div>
               <p class="help" id="phone-help"></p>
             </div>
@@ -96,10 +111,13 @@
             <div class="field required">
               <label class="label" for="address">Address</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input" type="text" id="address" placeholder="Enter address, ex. Park Ave, 103" aria-describedby="address-help" aria-required="true">
+                <input class="input" type="text" id="address" placeholder="Enter address, example Park Ave, 103" aria-describedby="address-help" aria-required="true">
                 <span class="icon is-small is-left">
                   <span class="fas fa-home" aria-hidden="true"></span> 
                 </span>
+                <span class="icon is-small is-right">
+                    <span class="fas" aria-hidden="true"></span>
+                  </span> 
               </div>
               <p class="help" id="address-help"></p>
             </div>
@@ -107,7 +125,7 @@
             <div class="field">
               <label class="label" for="zipcode">Zipcode</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input" type="text" id="zipcode" placeholder="Enter zipcode, ex. 220012">
+                <input class="input" type="text" id="zipcode" placeholder="Enter zipcode, example 220012">
                 <span class="icon is-small is-left">
                     <span class="fas fa-envelope" aria-hidden="true"></span> 
                 </span>
@@ -118,12 +136,16 @@
             <div class="field required">
               <label class="label" for="your-email">Email</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Enter your email, ex. hello@mail.ru" value="" id="your-email" aria-required="true" aria-required="true">
+                <input class="input" type="email" placeholder="Enter your email, example hello@mail.ru" value="" id="your-email" aria-required="true" aria-required="true" aria-describedby="mail-help mailValidationResult">
                 <span class="icon is-small is-left">
                   <span class="fas fa-envelope" aria-hidden="true"></span> 
                 </span>
+                <span class="icon is-small is-right">
+                    <span class="fas" aria-hidden="true"></span>
+                  </span> 
               </div>
-              <p class="help"></p>
+              <p class="help" aria-live="polite" id="mail-help"></p>
+              <p class="help" aria-live="polite" id="focus-info"></p>
             </div>
           
 
@@ -150,6 +172,6 @@
   
 
   <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
-  <script async src="js/customF-new.js"></script>
+  <script async src="js/custom-form.js"></script>
 </body>
 </html>

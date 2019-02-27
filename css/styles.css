@@ -387,7 +387,7 @@ fieldset:not(:last-child) {
   left: 0;
   margin: 10px 0 0 10px;
   background: #fff;
-  width: 150px;
+  width: 180px;
   padding: 1em;
   border-radius: 6px;
   display: none;
@@ -474,8 +474,27 @@ input[aria-disabled="true"] {
 }
 
 .required label:after {
-  content: "*";
-  color: red;
-  margin-left: 3px;
+  background: url(../icon/star.png) no-repeat top right;
+  padding-right: 12px;
+  content: "";
 }
 
+.errors-alert {
+  width: 50%;
+  margin: 30px auto;
+  padding: 5px 20px;
+  color: #df1840;
+}
+
+.errors-alert .title,
+.errors-alert a {
+   color: #df1840;
+}
+
+input.is-validationmsg {
+  border-color: blue;
+}
+
+p.is-validationmsg {
+  color: blue;
+}

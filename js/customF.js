@@ -1,116 +1,204 @@
 
-  
-
-var nikNames = [];
-var firstNames = [];
-var invalid = [];
+var users = [];
 
 
 function formValidation() {
-
-
-    // Nik 
-
-    var nikField = document.querySelector("#username"),
-    nik = nikField.value,
-    nikHelp = nikField.parentElement.nextElementSibling,
-    helpTxt,
-    iconCheck = document.createElement("span");
-    iconCheck.className = "icon is-small is-right";
-    iconCheck.innerHTML = "<span class=\"fas fa-check\" aria-hidden=\"true\"></span>";
-
-        
-    if (nik.length == 0 || nikNames.indexOf(nik) >= 0) {
+    var formReqFields = document.querySelectorAll("#mainForm input[aria-required]");
     
-        helpTxt = (nik.length == 0) ? "Please fill the field Username" : "This username is not available. Please create another one";
+    var user = {
+        "nik": "",
+        "name": "",
+        "year": "",
+        "phone": "",
+        "address": "",
+        "email": "",
+        "zipcode": ""   
+    };
 
-        nikHelp.classList.add("is-danger");
-        nikHelp.classList.remove("is-success");
-            
-        nikField.classList.add("is-danger");
-        nikField.classList.remove("is-success");
-        nikField.setAttribute("aria-invalid", true);
-        
+    var invalid = [],
+        errorsAlert = document.querySelectorAll(".errors-alert");
 
-        invalid.push(nikField);
-    
-
-    }
-    
-    else {
-        nikNames.push(nik);
-        nikField.classList.remove("is-danger");
-        nikField.classList.add("is-success");
-        nikField.removeAttribute("aria-invalid");
-        
-        helpTxt = "Value accepted";
-        nikHelp.classList.add("is-success");
-        nikHelp.classList.remove("is-danger");
-        
-        nikField.parentElement.appendChild(iconCheck);  // change to Triangle on error
+    if (errorsAlert.length) {
+        errorsAlert[0].remove();
     }
 
-    nikHelp.innerHTML = helpTxt;
-    
+    var listOfErrors = document.createElement("ol"),
+        errorsTitle = document.createElement("p"),
+        errorsBlock = document.createElement("div");
 
-    // Name 
+    errorsTitle.innerText = "Error! The form could not be submitted due to invalid entries. Please fix the following:";
+    errorsTitle.setAttribute("class", "title is-4");
+    errorsBlock.setAttribute("class", "errors-alert");
+    errorsBlock.setAttribute("tabindex", "-1");
 
-    var nameField = document.querySelector("#your-name"),
-    fName = nameField.value,
-    fNameHelp = nameField.parentElement.nextElementSibling;
+    document.querySelector("#mainForm").parentElement.prepend(errorsBlock);
 
-    if (fName.length == 0 && firstNames.length == 0) {
-        helpTxt = "Please fill the field First name";
-
-        fNameHelp.classList.add("is-danger");
-        fNameHelp.classList.remove("is-success");
-            
-        nameField.classList.add("is-danger");
-        nameField.classList.remove("is-success");
-        nameField.setAttribute("aria-invalid", true);
-
-        invalid.push(nameField);
-    }
-
-    else {
-        nameField.removeAttribute("aria-required");
-        nameField.parentElement.parentElement.classList.remove("required");
-
-        firstNames.push(fName);
-        nameField.classList.remove("is-danger");
-        nameField.classList.add("is-success");
-        nameField.removeAttribute("aria-invalid");
+    formReqFields.forEach(function(field){
         
-        helpTxt = "Value accepted";
-        fNameHelp.classList.add("is-success");
-        fNameHelp.classList.remove("is-danger");
+        var fieldValue = field.value,
+            label = field.parentElement.previousElementSibling.textContent,
+            helpTxt;
+                    
+        if (fieldValue.length == 0) {
+            helpTxt = "Please fill in " + label;
+            successErrorHandler(field, helpTxt, invalid);
+        }
+
         
-        nameField.parentElement.appendChild(iconCheck);  // change to Triangle on error
-    }
+        else {
 
-    fNameHelp.innerHTML = helpTxt;
+            switch (field.id) {
+                case "username":                
+                    var found = users.some(function (el) {
+                        return el.nik === fieldValue;
+                    });
+
+                    if (!found) { 
+                        user.nik = fieldValue;
+                        successErrorHandler(field);
+                    }
+                    else {
+                        helpTxt = "This username is not available. Please create another one";
+                        successErrorHandler(field, helpTxt, invalid);
+                    }
+                    break;
+
+                case "your-name":
+                    user.name = fieldValue;    
+                    successErrorHandler(field);
+                    break;
+                
+                case "last-name":
+                    user.name += fieldValue;
+                    
+                    var found = users.some(function (el) {
+                        return el.name === fieldValue;
+                    });
+
+                    var year = document.querySelector("#year");
+
+                    if (!found) { 
+                        user.name = fieldValue;
+                        successErrorHandler(field);
+                        year.setAttribute("aria-disabled", true);
+                        year.removeAttribute("aria-required");
+                    }
+                    else {
+                        alert("User with same name already exists. Please fill in year of birth, exapmple 1999");
+                        year.removeAttribute("aria-disabled");
+                        year.setAttribute("aria-required", true);
+                        year.focus();
+                    }
+                    break;
+
+                case "year": 
+                    var reg = /(?:(?:19|200)[0-9]{1})/;
+                    
+                    if(reg.test(String(fieldValue).toLowerCase())) {
+                        user.year = fieldValue;
+                        successErrorHandler(field);
+                    }
+                    else {
+                        helpTxt = "Please enter valid year of birth, ex. 1987";
+                        successErrorHandler(field, helpTxt, invalid);
+                    }                    
+                    break;    
+                
+                case "phone":
+                    var reg = /^\d+$/;
+                    
+                    if (reg.test(String(fieldValue).toLowerCase())) {
+                        user.phone = fieldValue;
+                        successErrorHandler(field);
+                    }
+                    else {
+                        helpTxt = "Please enter valid phone number, ex. 22266677";
+                        successErrorHandler(field, helpTxt, invalid);
+                    }
+                    break;
+                
+                case "your-email":
+                    var reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    
+                    if (reg.test(String(fieldValue).toLowerCase())) {
+                        successErrorHandler(field);
+                    }
+                    else {
+                        helpTxt = "Please enter valid email, ex. hello@hello.com";
+                        successErrorHandler(field, helpTxt, invalid);
+                    }
+                    break;           
+            }
+                        
+        }
+        
+    });
     
-
-
-
-    // focus first invalid
+    
     if (invalid.length > 0) {
-        invalid[0].focus();
-    }
-    
-    
+        invalid[0].focus(); // to focus first invalid, but currently focus to the List of errors (below)
 
-    
+        // list of errors:
+
+        invalid.forEach(function(el) {
+            var link = document.createElement("a");
+            link.setAttribute("href", "#" + el.id);
+            link.innerHTML = el.placeholder;
+
+            var linkItem = document.createElement("li");
+            linkItem.append(link);
+            listOfErrors.append(linkItem);
+        });
+
+        errorsBlock.append(errorsTitle);
+        errorsBlock.append(listOfErrors);
+        errorsBlock.focus();
+        
+    }
+
+    else {
+        users.push(user);
+        alert("Your profile has been created, data has been saved");
+    }
+        
 }
 
-    
 
+function successErrorHandler(field, helpTxt, invalid) {
+    var helpTxt = helpTxt,
+        label = field.parentElement.previousElementSibling.textContent;
+        iconRight = field.nextElementSibling.nextElementSibling.children[0],
+        fieldHelp = field.parentElement.nextElementSibling;
 
-  
+    if (invalid) {
+        fieldHelp.classList.add("is-danger");
+        fieldHelp.classList.remove("is-success");
+            
+        field.classList.add("is-danger");
+        field.classList.remove("is-success");
+        field.setAttribute("aria-invalid", true);
+        
+        iconRight.classList.remove("fa-check");
+        iconRight.classList.add("fa-exclamation-triangle");
+        
+        invalid.push(field);        
+    }
 
+    else {
+        field.classList.remove("is-danger");
+        field.classList.add("is-success");
+        field.removeAttribute("aria-invalid");
+            
+        fieldHelp.classList.add("is-success");
+        fieldHelp.classList.remove("is-danger");
+        
+        iconRight.classList.add("fa-check");
+        iconRight.classList.remove("fa-exclamation-triangle");
 
+        helpTxt = "Value accepted";    
+    }
 
-
-
+    fieldHelp.innerHTML = helpTxt;    
+}
 
 

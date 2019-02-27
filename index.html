@@ -19,7 +19,7 @@
       <ul class="skipnav-dropdown">
         <li class="skip-title">Skip To</li>
         <li><a href="#main-content" class="skip-link">main content</a></li>
-        <li><a href="#contact-form" class="skip-link">contact form</a></li>
+        <li><a href="#register-form" class="skip-link">register my team</a></li>
         <li><a href="#footer" class="skip-link">footer</a></li>
       </ul>  
     </div>
@@ -49,11 +49,11 @@
                   </a>
                 </li>
                 <li class="navbar-item">
-                  <a href="#contact-form" class="button is-white is-outlined">
+                  <a href="#register-form" class="button is-white is-outlined">
                     <span class="icon">
                       <span class="far fa-envelope" aria-hidden="true"></span> 
                     </span>
-                    <span>Contact us</span>
+                    <span>Register my team</span>
                   </a>
                 </li>
                 <li class="navbar-item">
@@ -112,7 +112,7 @@
                   <legend id="notification" class="visually-hidden">Notification</legend>  
                   <div class="field is-grouped">
                     <p class="control is-expanded">
-                      <label for="notify" class="visually-hidden">Input your email</label>
+                      <label for="notify"><span class="visually-hidden">Input your email</span></label>
                       <input class="input" type="email" id="notify" placeholder="Input your email here">
                     </p>
                     <p class="control">
@@ -1124,96 +1124,137 @@
       </div>
     </section>
 
-    <section aria-labelledby="contact-us" class="section has-background-light" id="contact-form">
+    <section aria-labelledby="register-team" class="section has-background-light" id="register-form">
       <div class="container">
         <div class="section-heading has-text-centered">
-          <h2 class="title is-2" id="contact-us">Contact us</h2>
+          <h2 class="title is-2" id="register-team">Register My team</h2>
           <div class="subtitle is-5">Don't hesitate, ask anything</div>
         </div>
 
-        <form aria-labelledby="contact" class="column is-half is-offset-one-quarter box" id="mainForm" onsubmit="formValidation(); return false;">
+        <form aria-labelledby="register" class="column is-half is-offset-one-quarter box" id="mainForm" onsubmit="formValidation(); return false;" action="#" novalidate>
           <fieldset class="visually-hidden">
-            <legend id="contact">Contact us</legend>  
+            <legend id="register">Register my team</legend>  
           </fieldset>
+
+          <p aria-hidden="true" class="req-msg">Required fields are marked with <span>*</span></p>
           
-          <fieldset>
-            <legend class="visually-hidden">Personal info</legend>
+         
             
-            <div class="field">
+            
+            <div class="field required">
                 <label class="label" for="username">Username</label>
                 <div class="control has-icons-left has-icons-right">
-                  <input class="input" type="text" id="username" placeholder="Pick up a username" aria-required="true" aria-invalid="false">
+                  <input class="input" type="text" id="username" placeholder="Pick up a username" aria-required="true" aria-describedby="username-help">
                   <span class="icon is-small is-left">
                     <span class="fas fa-user" aria-hidden="true"></span> 
-                  </span>                  
+                  </span>                 
+                  <span class="icon is-small is-right">
+                    <span class="fas" aria-hidden="true"></span>
+                  </span> 
                 </div>
-                <p class="help"></p>
-                <!-- <p class="help is-success">This username is available</p> -->
+                <p class="help" id="username-help"></p>
               </div>
-            
+
+            <fieldset>    
+                <legend class="visually-hidden">Full name</legend>
+
+                <div class="field required">
+                    <label class="label" for="your-name">First Name</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="text" placeholder="Enter first name" id="your-name" aria-required="true" aria-describedby="firstname-help">
+                        <span class="icon is-small is-left">
+                            <span class="fas fa-user" aria-hidden="true"></span> 
+                        </span>
+                        <span class="icon is-small is-right">
+                          <span class="fas" aria-hidden="true"></span>
+                        </span> 
+                    </div>
+                    <p class="help" id="firstname-help"></p>
+                </div>
+
+                <div class="field required">
+                <label class="label" for="last-name">Last Name</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Enter last name" id="last-name" aria-required="true" aria-describedby="lastname-help">
+                    <span class="icon is-small is-left">
+                        <span class="fas fa-user" aria-hidden="true"></span> 
+                    </span>
+                    <span class="icon is-small is-right">
+                      <span class="fas" aria-hidden="true"></span>
+                    </span> 
+                </div>
+                    <p class="help" id="lastname-help"></p>
+                </div>
+            </fieldset>  
+
             <div class="field">
-              <label class="label" for="your-name">
-                <span class="visually-hidden">Personal:</span>
-                  First Name
-              </label>
-              <div class="control">
-                <input class="input" type="text" placeholder="Enter first name" id="your-name">
-              </div>
+                <label class="label" for="year">Year of birth</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Enter year of birth, example 1999" id="year" aria-disabled="true" aria-describedby="year-help">
+                    <span class="icon is-small is-left">
+                        <span class="fas fa-user" aria-hidden="true"></span> 
+                    </span>
+                    <span class="icon is-small is-right">
+                      <span class="fas" aria-hidden="true"></span>
+                    </span> 
+                </div>
+                <p class="help" id="year-help"></p>
             </div>
 
-            <div class="field">
-              <label class="label" for="last-name">
-                <span class="visually-hidden">Personal:</span>
-                 Last Name
-              </label>
-              <div class="control">
-                <input class="input" type="text" placeholder="Enter last name" id="last-name">
-              </div>
-            </div>
-
-            
-
-            <div class="field">
+            <div class="field required">
               <label class="label" for="phone">Phone</label>
-              <div class="control has-icons-left">
-                <input class="input" type="text" id="phone" placeholder="222 55 77">
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" id="phone" placeholder="Enter phone, example 2225577" aria-describedby="phone-help" aria-required="true">
                 <span class="icon is-small is-left">
                   <span class="fas fa-phone" aria-hidden="true"></span> 
                 </span>
+                <span class="icon is-small is-right">
+                    <span class="fas" aria-hidden="true"></span>
+                  </span> 
               </div>
+              <p class="help" id="phone-help"></p>
             </div>
 
-            <div class="field">
+            <div class="field required">
               <label class="label" for="address">Address</label>
-              <div class="control has-icons-left">
-                <input class="input" type="text" id="address" placeholder="Park Ave, 103">
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" id="address" placeholder="Enter address, example Park Ave, 103" aria-describedby="address-help" aria-required="true">
                 <span class="icon is-small is-left">
                   <span class="fas fa-home" aria-hidden="true"></span> 
                 </span>
+                <span class="icon is-small is-right">
+                    <span class="fas" aria-hidden="true"></span>
+                  </span> 
               </div>
+              <p class="help" id="address-help"></p>
             </div>
 
             <div class="field">
               <label class="label" for="zipcode">Zipcode</label>
-              <div class="control">
-                <input class="input" type="text" id="zipcode" placeholder="220012">
-                </div>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" id="zipcode" placeholder="Enter zipcode, example 220012">
+                <span class="icon is-small is-left">
+                    <span class="fas fa-envelope" aria-hidden="true"></span> 
+                </span>
+              </div>
+              <p class="help"></p>
             </div>
 
-            <!-- <div class="field">
-              <label class="label" for="email">Email</label>
+            <div class="field required">
+              <label class="label" for="your-email">Email</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input is-danger" type="email" placeholder="Enter your email" aria-invalid="true" value="hello@" id="email">
+                <input class="input" type="email" placeholder="Enter your email, example hello@mail.ru" value="" id="your-email" aria-required="true" aria-required="true" aria-describedby="mail-help mailValidationResult">
                 <span class="icon is-small is-left">
                   <span class="fas fa-envelope" aria-hidden="true"></span> 
                 </span>
                 <span class="icon is-small is-right">
-                  <span class="fas fa-exclamation-triangle" aria-hidden="true"></span> 
-                </span>
+                    <span class="fas" aria-hidden="true"></span>
+                  </span> 
               </div>
-              <p class="help is-danger">This email is invalid</p>
-            </div> -->
-          </fieldset>  
+              <p class="help" aria-live="polite" id="mail-help"></p>
+              <p class="help" aria-live="polite" id="focus-info"></p>
+            </div>
+          
 
           <fieldset>
             <div class="field is-grouped">
@@ -1402,5 +1443,6 @@
 
   <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
   <script async src="js/custom.js"></script>
+  <script async src="js/custom-form.js"></script>
 </body>
 </html>
