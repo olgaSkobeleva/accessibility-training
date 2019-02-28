@@ -273,12 +273,28 @@ function validateMail(field) {
     
 
     if (!isEmpty(field)) {
-       
+
         if (!reg.test(String(fieldValue).toLowerCase())) {
             helpTxt = "Please enter valid email, ex. hello@hello.com";
             isInvalid = true;
             mailValid = false;
         }
+
+        else {
+            var found = users.some(function (el) {
+                return el.email === fieldValue;
+            });
+
+            if (!found) { 
+                user.email = fieldValue;
+            }
+            else {
+                helpTxt = "This email is already registered. Please enter another one";
+                isInvalid = true;
+                mailValid = false;
+            }
+        }        
+
         successErrorHandler(field, helpTxt, isInvalid);        
     }
     
