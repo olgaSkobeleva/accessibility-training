@@ -1,4 +1,3 @@
-
 var users = [];
 var invalid = [];
 var user = {};
@@ -15,7 +14,7 @@ var email = document.querySelector("#your-email");
 var focusMsg = document.querySelector("#focus-info");
 var helpTxt;
 var isInvalid;
-var mailValid;
+var mailValid = false;
 
 var mailValResult = document.createElement("p");
 mailValResult.setAttribute("id", "mailValidationResult");
@@ -41,16 +40,17 @@ email.addEventListener("blur", function() {
     this.classList.remove("is-success");
     
 
-    email.focus();
+    if (!mailValid) {
+        email.focus();
 
-    email.onfocus = function() {
-        email.onkeyup = function(e) {
-            if(e.which == 9) {
-                focusMsg.innerText = "Please don't move focus until validation ends";
+        email.onfocus = function() {
+            email.onkeyup = function(e) {
+                if(e.which == 9) {
+                    focusMsg.innerText = "Please don't move focus until validation ends";
+                }
             }
-        }
-    };
-    
+        };
+    }
         
     setTimeout(function() {
         
@@ -177,6 +177,7 @@ function validateUsername(field) {
 function validateName(field) {
     var fieldValue = field.value;
     isInvalid = false;
+    mailValid = false;
 
     if (!isEmpty(field)) {
         user.name = fieldValue;    
