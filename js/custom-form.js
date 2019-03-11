@@ -15,57 +15,67 @@ var focusMsg = document.querySelector("#focus-info");
 var helpTxt;
 var isInvalid;
 var mailValid = false;
+var canMoveFocus = false;
 
 var mailValResult = document.createElement("p");
 mailValResult.setAttribute("id", "mailValidationResult");
 mailValResult.setAttribute("aria-live", "polite");
 document.querySelector("#mainForm").append(mailValResult);
 
+email.addEventListener("change", function() {
+    canMoveFocus = false;
+});
 
 email.addEventListener("blur", function() {
+   
     mailValResult.innerText = "";
     focusMsg.innerText = "";
-
-    iconRight = this.nextElementSibling.nextElementSibling.children[0],
-    fieldHelp = this.parentElement.nextElementSibling;
     
-    fieldHelp.innerText = "Email validation has started. Please wait, it can take some time";
-    fieldHelp.classList.add("is-validationmsg");
-    fieldHelp.classList.remove("is-danger");
-    fieldHelp.classList.remove("is-success");
-
-
-    this.classList.add("is-validationmsg");
-    this.classList.remove("is-danger");
-    this.classList.remove("is-success");
+    if (!canMoveFocus) {
     
+        iconRight = this.nextElementSibling.nextElementSibling.children[0],
+        fieldHelp = this.parentElement.nextElementSibling;
+        
+        fieldHelp.innerText = "Email validation has started. Please wait, it can take some time";
+        fieldHelp.classList.add("is-validationmsg");
+        fieldHelp.classList.remove("is-danger");
+        fieldHelp.classList.remove("is-success");
 
-    if (!mailValid) {
+
+        this.classList.add("is-validationmsg");
+        this.classList.remove("is-danger");
+        this.classList.remove("is-success");
+
         email.focus();
 
-        email.onfocus = function() {
-            email.onkeyup = function(e) {
-                if(e.which == 9) {
-                    focusMsg.innerText = "Please don't move focus until validation ends";
-                    e.preventDefault();
-                }
+        setTimeout(function() {
+    
+            if (validateMail(email)) {
+                mailValResult.innerText = "Mail validated, value accepted";
             }
-        };
+            else {
+                mailValResult.innerText = "Mail validated, value not accepted";
+                // email.focus();          
+                
+            }
+            
+            canMoveFocus = true;
+            focusMsg.innerText = "";
+    
+        }, 5000)
     }
-        
-    setTimeout(function() {
-        
-        if (validateMail(email)) {
-            mailValResult.innerText = "Mail validated, value accepted";
-        }
-        else {
-            mailValResult.innerText = "Mail validated, value not accepted";
-            // email.focus();
-        }
-        
-        focusMsg.innerText = "";
 
-    }, 5000)
+    email.onfocus = function() {
+        email.onkeyup = function(e) {
+            if(e.which == 9 && !canMoveFocus) {
+                focusMsg.innerText = "Please don't move focus until validation ends";
+                e.preventDefault();
+                // email.focus();
+
+            }
+        }
+    };
+
 });
 
 
@@ -136,6 +146,8 @@ function formValidation() {
     }
 
     // console.log(users);
+
+    canMoveFocus = false;
         
 }
 
@@ -147,7 +159,7 @@ function isEmpty(field) {
     if (fieldValue.length == 0) {
         helpTxt = "Please fill in " + label;
         isInvalid = true;
-        // mailValid = false;
+        mailValid = false;
         successErrorHandler(field, helpTxt, isInvalid);
 
         return true;
@@ -178,7 +190,7 @@ function validateUsername(field) {
 function validateName(field) {
     var fieldValue = field.value;
     isInvalid = false;
-    // mailValid = false;
+    mailValid = false;
 
     if (!isEmpty(field)) {
         user.name = fieldValue;    
@@ -268,10 +280,13 @@ function validateAddress(field) {
 }
 
 function validateMail(field) {
+    
     var fieldValue = field.value;
     var reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     isInvalid = false;
     mailValid = true;
+
+    canMoveFocus = false;
     
 
     if (!isEmpty(field)) {
@@ -279,7 +294,7 @@ function validateMail(field) {
         if (!reg.test(String(fieldValue).toLowerCase())) {
             helpTxt = "Please enter valid email, ex. hello@hello.com";
             isInvalid = true;
-            // mailValid = false;
+            mailValid = false;
         }
 
         else {
@@ -293,7 +308,7 @@ function validateMail(field) {
             else {
                 helpTxt = "This email is already registered. Please enter another one";
                 isInvalid = true;
-                // mailValid = false;
+                mailValid = false;
             }
         }        
 
