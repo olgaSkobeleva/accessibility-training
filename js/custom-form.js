@@ -47,6 +47,7 @@ email.addEventListener("blur", function() {
             email.onkeyup = function(e) {
                 if(e.which == 9) {
                     focusMsg.innerText = "Please don't move focus until validation ends";
+                    e.preventDefault();
                 }
             }
         };
@@ -146,7 +147,7 @@ function isEmpty(field) {
     if (fieldValue.length == 0) {
         helpTxt = "Please fill in " + label;
         isInvalid = true;
-        mailValid = false;
+        // mailValid = false;
         successErrorHandler(field, helpTxt, isInvalid);
 
         return true;
@@ -177,7 +178,7 @@ function validateUsername(field) {
 function validateName(field) {
     var fieldValue = field.value;
     isInvalid = false;
-    mailValid = false;
+    // mailValid = false;
 
     if (!isEmpty(field)) {
         user.name = fieldValue;    
@@ -278,7 +279,7 @@ function validateMail(field) {
         if (!reg.test(String(fieldValue).toLowerCase())) {
             helpTxt = "Please enter valid email, ex. hello@hello.com";
             isInvalid = true;
-            mailValid = false;
+            // mailValid = false;
         }
 
         else {
@@ -292,7 +293,7 @@ function validateMail(field) {
             else {
                 helpTxt = "This email is already registered. Please enter another one";
                 isInvalid = true;
-                mailValid = false;
+                // mailValid = false;
             }
         }        
 
